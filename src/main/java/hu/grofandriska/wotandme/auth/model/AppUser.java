@@ -2,6 +2,7 @@ package hu.grofandriska.wotandme.auth.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,11 +29,13 @@ public class AppUser implements UserDetails {
     private LocalDateTime createdAt;
 
     @Override
+    @NonNull
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
     }
 
     @Override
+    @NonNull
     public String getUsername() {
         return "";
     }

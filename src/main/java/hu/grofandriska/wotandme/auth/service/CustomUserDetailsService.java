@@ -1,4 +1,4 @@
-package hu.grofandriska.wotandme.auth.security;
+package hu.grofandriska.wotandme.auth.service;
 
 import hu.grofandriska.wotandme.auth.model.AppUser;
 import hu.grofandriska.wotandme.auth.repository.AppUserRepository;
