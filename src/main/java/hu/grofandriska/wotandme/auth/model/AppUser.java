@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -20,13 +21,18 @@ public class AppUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
     @Column(nullable = false)
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    @CreationTimestamp
     private LocalDateTime createdAt;
+    @Column(nullable = false)
+    private String nickname;
+    @Column(unique = true, nullable = false)
+    private Long accountId;
 
     @Override
     @NonNull

@@ -3,6 +3,7 @@ package hu.grofandriska.wotandme.auth.controller;
 
 import hu.grofandriska.wotandme.auth.model.dto.AuthRequest;
 import hu.grofandriska.wotandme.auth.model.dto.AuthResponse;
+import hu.grofandriska.wotandme.auth.model.dto.RegistrationRequest;
 import hu.grofandriska.wotandme.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/registration")
-    public ResponseEntity<AuthResponse> register(@RequestBody AuthRequest request) {
+    public ResponseEntity<AuthResponse> register(@RequestBody RegistrationRequest request) {
         return ResponseEntity.ok(
                 authService.register(request)
         );

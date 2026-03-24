@@ -1,8 +1,12 @@
 package hu.grofandriska.wotandme.api.service;
 
+import hu.grofandriska.wotandme.api.model.account.AccountSearchResponse;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import java.util.List;
 
 @Service
 public class PlayerService {
@@ -15,7 +19,7 @@ public class PlayerService {
         this.webClient = webClient;
     }
 
-    public String searchPlayer(String nickname) {
+    public AccountSearchResponse searchPlayer(String nickname) {
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/wot/account/list/")
@@ -24,7 +28,7 @@ public class PlayerService {
                         .build()
                 )
                 .retrieve()
-                .bodyToMono(String.class)
+                .bodyToMono(new ParameterizedTypeReference<AccountSearchResponse>() {})
                 .block();
     }
 }
