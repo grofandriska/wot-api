@@ -16,6 +16,8 @@ public class AuthController {
 
     private final AuthService authService;
 
+    /**Validates whenever a player with nickname exists in wot player base,
+     *  and save if any matching nickname is present valid and email address not existing in app.*/
     @PostMapping("/registration")
     public ResponseEntity<AuthResponse> register(@RequestBody RegistrationRequest request) {
         return ResponseEntity.ok(

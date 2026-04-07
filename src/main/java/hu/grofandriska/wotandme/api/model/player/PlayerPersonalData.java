@@ -1,7 +1,23 @@
 package hu.grofandriska.wotandme.api.model.player;
 
+import lombok.Data;
+
+import java.sql.Timestamp;
+
+@Data
 public class PlayerPersonalData {
 
+    private Long created_at;
+    private Long logout_at;
+    private Long updated_at;
+    private Integer global_rating;
+
+    private String nickname;
+
+    private String ban_info;
+    private String ban_details;
+    private Long ban_time;
+}
     /*
     * created_at	timestamp
     * logout_at	timestamp
@@ -140,4 +156,4 @@ statistics.all.xp	numeric
 Total experience
     *
     * */
-}
+
