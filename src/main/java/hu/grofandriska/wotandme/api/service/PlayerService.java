@@ -2,6 +2,7 @@ package hu.grofandriska.wotandme.api.service;
 
 import hu.grofandriska.wotandme.api.model.account.AccountSearchResponse;
 import hu.grofandriska.wotandme.api.model.player.personaldata.PlayerPersonalDataWrapper;
+import hu.grofandriska.wotandme.api.model.player.tankstats.DetailedTankStatsWrapper;
 import hu.grofandriska.wotandme.api.model.player.vehicles.PlayerTankStatsWrapper;
 import hu.grofandriska.wotandme.auth.model.AppUser;
 import hu.grofandriska.wotandme.auth.repository.AppUserRepository;
@@ -74,6 +75,25 @@ public class PlayerService {
                     )
                     .retrieve()
                     .bodyToMono(new ParameterizedTypeReference<PlayerTankStatsWrapper>() {
+                    })
+                    .block();
+        } else throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND,
+                "User not found with nickname: " + nickname);
+    }
+
+    public DetailedTankStatsWrapper getPlayersVehiclesStats(String nickname) {
+        Optional<AppUser> user = userRepository.findByNickname(nickname);
+        if (user.isPresent()) {
+            return webClient.get()
+                    .uri(uriBuilder -> uriBuilder
+                            .path("/wot/tanks/stats/")
+                            .queryParam("application_id", appId)
+                            .queryParam("account_id", user.get().getAccountId())
+                            .build()
+                    )
+                    .retrieve()
+                    .bodyToMono(new ParameterizedTypeReference<DetailedTankStatsWrapper>() {
                     })
                     .block();
         } else throw new ResponseStatusException(

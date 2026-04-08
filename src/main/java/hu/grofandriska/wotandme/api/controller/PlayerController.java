@@ -3,6 +3,7 @@ package hu.grofandriska.wotandme.api.controller;
 
 import hu.grofandriska.wotandme.api.model.account.AccountSearchResponse;
 import hu.grofandriska.wotandme.api.model.player.personaldata.PlayerPersonalDataWrapper;
+import hu.grofandriska.wotandme.api.model.player.tankstats.DetailedTankStatsWrapper;
 import hu.grofandriska.wotandme.api.model.player.vehicles.PlayerTankStatsWrapper;
 import hu.grofandriska.wotandme.api.service.PlayerService;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,12 @@ public class PlayerController {
     @GetMapping("/vehicles")
     public ResponseEntity<PlayerTankStatsWrapper> getPlayersVehicles(@RequestParam String nickname) {
         PlayerTankStatsWrapper response = service.getPlayersVehicles(nickname);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/vehicles/stats")
+    public ResponseEntity<DetailedTankStatsWrapper> getPlayersVehiclesStats(@RequestParam String nickname) {
+        DetailedTankStatsWrapper response = service.getPlayersVehiclesStats(nickname);
         return ResponseEntity.ok(response);
     }
 }
