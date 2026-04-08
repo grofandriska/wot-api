@@ -1,4 +1,4 @@
-package hu.grofandriska.wotandme.api.model.player;
+package hu.grofandriska.wotandme.api.model.player.personaldata;
 
 import lombok.Data;
 
