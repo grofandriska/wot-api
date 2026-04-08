@@ -3,6 +3,7 @@ package hu.grofandriska.wotandme.api.controller;
 
 import hu.grofandriska.wotandme.api.model.account.AccountSearchResponse;
 import hu.grofandriska.wotandme.api.model.player.PlayerPersonalData;
+import hu.grofandriska.wotandme.api.model.player.PlayerPersonalDataWrapper;
 import hu.grofandriska.wotandme.api.service.PlayerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +31,8 @@ public class PlayerController {
     }
 
     @GetMapping("/data")
-    public ResponseEntity<PlayerPersonalData> getPersonalData(@RequestParam String nickname) {
-        PlayerPersonalData response = service.getPersonalData(nickname);
+    public ResponseEntity<PlayerPersonalDataWrapper> getPersonalData(@RequestParam String nickname) {
+        PlayerPersonalDataWrapper response = service.getPersonalData(nickname);
         return ResponseEntity.ok(response);
     }
 }

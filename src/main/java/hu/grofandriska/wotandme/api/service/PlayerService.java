@@ -2,6 +2,7 @@ package hu.grofandriska.wotandme.api.service;
 
 import hu.grofandriska.wotandme.api.model.account.AccountSearchResponse;
 import hu.grofandriska.wotandme.api.model.player.PlayerPersonalData;
+import hu.grofandriska.wotandme.api.model.player.PlayerPersonalDataWrapper;
 import hu.grofandriska.wotandme.auth.model.AppUser;
 import hu.grofandriska.wotandme.auth.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Value;
@@ -43,9 +44,20 @@ public class PlayerService {
                 .block();
     }
 
-    public PlayerPersonalData getPersonalData(String nickname) {
+    public PlayerPersonalDataWrapper getPersonalData(String nickname) {
         Optional<AppUser> user = userRepository.findByNickname(nickname);
         if (user.isPresent()) {
+            System.out.println("User was found!");
+            String rawJson = webClient.get()
+                    .uri(uriBuilder -> uriBuilder
+                            .path("/wot/account/info/")
+                            .queryParam("application_id", appId)
+                            .queryParam("account_id", user.get().getAccountId())
+                            .build())
+                        .retrieve()
+                    .bodyToMono(String.class)
+                    .block();
+            System.out.println("Raw JSON from API: " + rawJson);
             return webClient.get()
                     .uri(uriBuilder -> uriBuilder
                             .path("/wot/account/info/")
@@ -54,7 +66,7 @@ public class PlayerService {
                             .build()
                     )
                     .retrieve()
-                    .bodyToMono(new ParameterizedTypeReference<PlayerPersonalData>() {
+                    .bodyToMono(new ParameterizedTypeReference<PlayerPersonalDataWrapper>() {
                     })
                     .block();
         } else throw new ResponseStatusException(
