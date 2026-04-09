@@ -2,22 +2,7 @@
 
 Ez a projekt egy **Java Spring Boot 3** alapú REST API, amely a hivatalos Wargaming.net Open API-t használja fel. Segítségével lekérdezhetők a játékosok statisztikái, a garázsukban lévő tankok adatai, valamint a teljes World of Tanks jármű-enciklopédia.
 
-## ️ 🛠️TODO:
-- **Basic Api** hívások kirefaktorálása és paraméterek inputja
-- **WN8** és hozzá tartozó tábla letöltése és implementálása
-- **Tankok** és ID-k lokális tárolása
-- **Hibakezelés** és Try catch és időtúllépések és retry
-- **releváns adatok** wrappolása csoportokba a megjeleníthetőségért
-- **Redis** vagy egy egyszerű memóriabeli cache-t a gyakran lekérdezett játékosok adataihoz
-- **Lazy Loading**: Ha egy játékos összes tankját listázod (ami lehet akár 400+ is), ne egyszerre rendereld
-    le az összeset képekkel együtt, mert belassítja a böngészőt. 
-    Használj "infinite scroll"-t vagy lapozást.
 
-- **Képoptimalizálás**: A tankok ikonjait ne a WG szervereiről húzd be minden egyes alkalommal, 
-      hanem ha lehet, használj optimalizáltabb forrást vagy helyi sprite-okat.
-- **SOLID**
-- **UnitTesztek**
-- **Adatkalkulálások és Grafikonok**
 ## ✨ Funkciók
 - **Felhasználókezelés:** Biztonságos regisztráció és JWT (Bearer Token) alapú hitelesítés.
 - **Személyes statisztikák:** Játékos szintű adatok (győzelmi arány, csaták száma, átlagos sebzés).
@@ -101,6 +86,22 @@ Az API kezelése során az alábbi kihívásokat oldottuk meg:
 - [ ] Hibakezelés finomítása (pl. nem létező nickname vagy API hiba esetén).
 - [ ] Caching (Redis) implementálása az enciklopédia adatokhoz.
 - [ ] Swagger/OpenAPI dokumentáció integrálása a könnyebb teszteléshez.
+- [ ] ## ️ 🛠️TODO:
+- [ ] **Basic Api** hívások kirefaktorálása és paraméterek inputja
+- [ ] **WN8** és hozzá tartozó tábla letöltése és implementálása
+- [ ] **Tankok** és ID-k lokális tárolása
+- [ ] **Hibakezelés** és Try catch és időtúllépések és retry
+- [ ] **releváns adatok** wrappolása csoportokba a megjeleníthetőségért
+- [ ] **Redis** vagy egy egyszerű memóriabeli cache-t a gyakran lekérdezett játékosok adataihoz
+- [ ] **Lazy Loading**: Ha egy játékos összes tankját listázod (ami lehet akár 400+ is), ne egyszerre rendereld
+  le az összeset képekkel együtt, mert belassítja a böngészőt.
+  Használj "infinite scroll"-t vagy lapozást.
+
+- [ ] **Képoptimalizálás**: A tankok ikonjait ne a WG szervereiről húzd be minden egyes alkalommal,
+  hanem ha lehet, használj optimalizáltabb forrást vagy helyi sprite-okat.
+- [ ] **SOLID**
+- [ ] **UnitTesztek**
+- [ ] **Adatkalkulálások és Grafikonok**
 
 ---
 *Készült a World of Tanks rajongók és fejlesztők számára.*
