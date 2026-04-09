@@ -25,6 +25,13 @@ Ez a projekt egy **Java Spring Boot 3** alapú REST API, amely a hivatalos Warga
 3.  **Beállítás:** Az `src/main/resources/application.properties` fájlban add meg az azonosítódat:
     ```properties
     wargaming.api.key=YOUR_APPLICATION_ID_HERE
+    spring.application.name=wotandme
+
+    jwt.secret=mZ7Jx7sJX3kF4Zp5n8W2cL1tQ9vR6yT0aBcDeFgHiJk=
+    jwt.expiration=86400000
+
+    app.id=SECRET APP ID (USE PWN ID REQUESTED FROM WOT DEV)
+    api.account.list=?application_id=
     ```
 4.  **Futtatás:**
     ```bash
