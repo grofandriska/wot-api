@@ -1,4 +1,4 @@
-- # World of Tanks Statistics API 📊
+ # World of Tanks Statistics API 📊
 
 Ez a projekt egy **Java Spring Boot 3** alapú REST API, amely a hivatalos Wargaming.net Open API-t használja fel. Segítségével lekérdezhetők a játékosok statisztikái, a garázsukban lévő tankok adatai, valamint a teljes World of Tanks jármű-enciklopédia.
 
