@@ -86,7 +86,6 @@ Az API kezelése során az alábbi kihívásokat oldottuk meg:
 - [ ] Hibakezelés finomítása (pl. nem létező nickname vagy API hiba esetén).
 - [ ] Caching (Redis) implementálása az enciklopédia adatokhoz.
 - [ ] Swagger/OpenAPI dokumentáció integrálása a könnyebb teszteléshez.
-- [ ] ## ️ 🛠️TODO:
 - [ ] **Basic Api** hívások kirefaktorálása és paraméterek inputja
 - [ ] **WN8** és hozzá tartozó tábla letöltése és implementálása
 - [ ] **Tankok** és ID-k lokális tárolása
