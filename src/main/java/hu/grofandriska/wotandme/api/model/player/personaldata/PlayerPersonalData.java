@@ -23,9 +23,8 @@ public class PlayerPersonalData {
     private Long lastBattleTime;
     @JsonProperty("global_rating")
     private Integer globalRating;
-
-    private StatisticsDTO statistics;
-
     @JsonProperty("private")
     private Object privateData;
+
+    private StatisticsDTO statistics;
 }

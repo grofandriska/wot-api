@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Data
 public class AccountSearchResponseData {
-
     @JsonProperty("account_id")
     private Long id;
     @JsonProperty("nickname")

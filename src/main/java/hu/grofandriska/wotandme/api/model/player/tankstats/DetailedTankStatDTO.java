@@ -12,11 +12,7 @@ public class DetailedTankStatDTO {
     private Long tankId;
     @JsonProperty("account_id")
     private Long accountId;
-
     @JsonProperty("mark_of_mastery")
     private Integer markOfMastery;
-
     private TankAllStatsDTO all;
-
-
 }

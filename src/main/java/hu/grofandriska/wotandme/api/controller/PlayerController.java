@@ -6,6 +6,7 @@ import hu.grofandriska.wotandme.api.model.player.personaldata.PlayerPersonalData
 import hu.grofandriska.wotandme.api.model.player.tankstats.DetailedTankStatsWrapper;
 import hu.grofandriska.wotandme.api.model.player.vehicles.PlayerTankStatsWrapper;
 import hu.grofandriska.wotandme.api.service.PlayerService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,6 @@ public class PlayerController {
         this.service = service;
     }
 
-    /// deprecated and unused but might be usable later
     @GetMapping("/search")
     public ResponseEntity<AccountSearchResponse> search(@RequestParam String nickname) {
         AccountSearchResponse response = service.searchPlayer(nickname);

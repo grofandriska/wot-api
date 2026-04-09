@@ -6,7 +6,6 @@ import java.util.Map;
 
 @Data
 public class PlayerPersonalDataWrapper {
-
     private String status;
     private MetaDTO meta;
     private Map <String,PlayerPersonalData> data;

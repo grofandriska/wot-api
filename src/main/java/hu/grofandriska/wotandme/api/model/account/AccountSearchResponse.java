@@ -11,7 +11,6 @@ import java.util.List;
 public class AccountSearchResponse {
     @JsonProperty("status")
     private String status;
-
     @JsonProperty("data")
     private List<AccountSearchResponseData> accountList;
 }

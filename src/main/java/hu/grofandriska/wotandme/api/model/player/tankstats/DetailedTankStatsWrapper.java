@@ -10,9 +10,7 @@ import java.util.Map;
 
 @Data
 public class DetailedTankStatsWrapper {
-
     private String status;
     private MetaDTO meta;
-
     private Map<String, List<DetailedTankStatDTO>> data;
 }
